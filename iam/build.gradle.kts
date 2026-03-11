@@ -18,6 +18,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:3.0.2")
 	implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
 	implementation("org.keycloak:keycloak-admin-client:26.0.5")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

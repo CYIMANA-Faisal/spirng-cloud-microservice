@@ -10,6 +10,18 @@ spring:
               uri: lb://iam
               predicates:
                 - Path=/api/iam/**
+            - id: iam-openapi
+              uri: lb://iam
+              predicates:
+                - Path=/v3/api-docs/iam
+              filters:
+                - RewritePath=/v3/api-docs/iam, /v3/api-docs
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: IAM
+        url: /v3/api-docs/iam
 
 server:
   port: ${GATEWAY_PORT:8080}

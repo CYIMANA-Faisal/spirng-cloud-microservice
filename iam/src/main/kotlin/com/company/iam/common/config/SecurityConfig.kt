@@ -21,6 +21,16 @@ class SecurityConfig {
 
     @Bean
     @Order(1)
+    fun swaggerFilterChain(http: HttpSecurity): SecurityFilterChain {
+        http
+            .securityMatcher("/v3/api-docs", "/v3/api-docs/**")
+            .csrf { it.disable() }
+            .authorizeHttpRequests { it.anyRequest().permitAll() }
+        return http.build()
+    }
+
+    @Bean
+    @Order(2)
     fun publicFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .securityMatcher("/api/iam/auth/**")
@@ -32,7 +42,7 @@ class SecurityConfig {
     }
 
     @Bean
-    @Order(2)
+    @Order(3)
     fun protectedFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .csrf { it.disable() }

@@ -32,6 +32,11 @@ keycloak:
     client-id: ${IAM_KEYCLOAK_ADMIN_CLIENT_ID:iam-admin}
     client-secret: ${IAM_KEYCLOAK_ADMIN_CLIENT_SECRET:changeme}
 
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  packages-to-scan: com.company.iam
+
 resilience4j:
   circuitbreaker:
     instances:
