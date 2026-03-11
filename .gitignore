@@ -16,3 +16,18 @@
 
 ### VS Code ###
 .vscode/
+
+### Agents ###
+.gemini/
+.github/
+.opencode/
+.windsurf/
+.agent/
+.claude/
+.codex/
+.cursor/
+openspec
+
+### Environments ###
+**/.env
+!**/.env-*
