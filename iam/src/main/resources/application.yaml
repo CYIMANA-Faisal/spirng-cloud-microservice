@@ -1,6 +1,9 @@
 spring:
   application:
     name: iam
+  output:
+    ansi:
+      enabled: always
   autoconfigure:
     exclude:
       - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
@@ -33,6 +36,7 @@ keycloak:
     client-secret: ${IAM_KEYCLOAK_ADMIN_CLIENT_SECRET:changeme}
 
 springdoc:
+  use-fqn: true
   api-docs:
     path: /v3/api-docs
   packages-to-scan: com.company.iam

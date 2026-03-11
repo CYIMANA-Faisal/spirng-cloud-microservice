@@ -22,6 +22,12 @@ springdoc:
     urls:
       - name: IAM
         url: /v3/api-docs/iam
+    doc-expansion: none
+    operations-sorter: method
+    persist-authorization: true
+    syntax-highlight:
+      theme: arta
+    tags-sorter: alpha
 
 server:
   port: ${GATEWAY_PORT:8080}
