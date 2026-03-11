@@ -2,36 +2,10 @@
 .gradle
 
 # Ignore Gradle build output directory
-**/build/
+build
 
 # Ignore Kotlin plugin data
 .kotlin
 
 # Intellij IDEA
 .idea
-*.iws
-*.iml
-*.ipr
-**/out/
-
-### VS Code ###
-.vscode/
-
-### Agents ###
-.gemini/
-.github/
-.opencode/
-.windsurf/
-.agent/
-.claude/
-.codex/
-.cursor/
-openspec
-
-### Environments ###
-**/.env
-!**/.env-*
-
-### Data volumes ###
-**/keycloak-data/
-**/postgres-data/
