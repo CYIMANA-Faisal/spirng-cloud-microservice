@@ -31,3 +31,7 @@ openspec
 ### Environments ###
 **/.env
 !**/.env-*
+
+### Data volumes ###
+**/keycloak-data/
+**/postgres-data/
