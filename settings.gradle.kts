@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 rootProject.name = "spring-cloud-microservice"
 include("common")
 include("gateway")
+include("iam")
+include("discovery")
