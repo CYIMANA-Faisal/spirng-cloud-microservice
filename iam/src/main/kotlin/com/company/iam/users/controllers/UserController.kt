@@ -1,9 +1,8 @@
 package com.company.iam.users.controllers
 
-import com.company.iam.users.CreateUserRequest
-import com.company.iam.users.UserResponse
-import com.company.iam.users.usecases.CreateUserUseCase
-import com.company.iam.users.usecases.ListUsersUseCase
+import com.company.iam.users.dtos.CreateUserDTO
+import com.company.iam.users.dtos.ListUsersDTO
+import com.company.iam.users.services.UserService
 import org.springframework.data.domain.Page
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
@@ -18,8 +17,7 @@ import java.net.URI
 @RestController
 @RequestMapping("/api/iam/users")
 class UserController(
-    private val listUsersUseCase: ListUsersUseCase,
-    private val createUserUseCase: CreateUserUseCase,
+    private val userService: UserService,
 ) {
 
     @GetMapping
@@ -28,13 +26,13 @@ class UserController(
         @RequestParam(defaultValue = "0") page: Int,
         @RequestParam(defaultValue = "20") size: Int,
         @RequestParam(required = false) search: String?,
-    ): ResponseEntity<Page<UserResponse>> =
-        ResponseEntity.ok(listUsersUseCase.listUsers(page, size, search))
+    ): ResponseEntity<Page<ListUsersDTO.Output>> =
+        ResponseEntity.ok(userService.listUsers(page, size, search))
 
     @PostMapping
     @PreAuthorize("hasAuthority('iam:user:create')")
-    fun createUser(@RequestBody request: CreateUserRequest): ResponseEntity<UserResponse> {
-        val user = createUserUseCase.createUser(request)
+    fun createUser(@RequestBody request: CreateUserDTO.Input): ResponseEntity<CreateUserDTO.Output> {
+        val user = userService.createUser(request)
         return ResponseEntity.created(URI.create("/api/iam/users/${user.id}")).body(user)
     }
 }
