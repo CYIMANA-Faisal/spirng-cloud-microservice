@@ -14,13 +14,13 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-webmvc")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
-	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation(libs.spring.boot.starter.webmvc)
+	implementation(libs.kotlin.reflect)
+	implementation(libs.spring.cloud.eureka.server)
+	implementation(libs.jackson.module.kotlin)
+	testImplementation(libs.spring.boot.starter.webmvc.test)
+	testImplementation(libs.kotlin.test.junit5)
+	testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 dependencyManagement {
@@ -33,8 +33,4 @@ kotlin {
 	compilerOptions {
 		freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
 	}
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
 }

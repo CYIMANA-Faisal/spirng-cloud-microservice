@@ -13,18 +13,18 @@ repositories {
 }
 
 dependencies {
-	implementation(project(":common"))
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-	implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:3.0.2")
-	implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
-	implementation("org.keycloak:keycloak-admin-client:26.0.5")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.security:spring-security-test")
-	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation(project(":shared-lib"))
+	implementation(libs.spring.boot.starter.web)
+	implementation(libs.spring.boot.starter.oauth2.resource.server)
+	implementation(libs.kotlin.reflect)
+	implementation(libs.spring.cloud.eureka.client)
+	implementation(libs.springdoc.openapi.webmvc.api)
+	implementation(libs.spring.cloud.circuitbreaker.resilience4j)
+	implementation(libs.keycloak.admin.client)
+	testImplementation(libs.spring.boot.starter.test)
+	testImplementation(libs.spring.security.test)
+	testImplementation(libs.kotlin.test.junit5)
+	testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 dependencyManagement {
@@ -37,8 +37,4 @@ kotlin {
 	compilerOptions {
 		freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
 	}
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
 }
