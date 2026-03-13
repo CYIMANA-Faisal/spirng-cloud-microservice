@@ -11,5 +11,9 @@ subprojects {
         extensions.findByType<JavaPluginExtension>()?.toolchain {
             languageVersion = JavaLanguageVersion.of(libs.versions.java.get().toInt())
         }
+
+        tasks.withType<Test>().configureEach {
+            useJUnitPlatform()
+        }
     }
 }

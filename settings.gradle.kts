@@ -12,7 +12,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "spring-cloud-microservice"
-include("common")
+include("shared-lib")
+include("security-lib")
+include("observability-lib")
 include("gateway")
 include("iam")
 include("discovery")
